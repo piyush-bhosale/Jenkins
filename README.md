@@ -1,33 +1,65 @@
-## Jenkins CI/CD Pipeline for Java Application ##
+# Jenkins CI/CD Pipeline for Java Application with Docker & SonarQube
 
-**Project Overview**
-This project showcases a complete Jenkins-based CI/CD pipeline for a Java application, built using Maven, scanned using SonarQube, packaged as a Docker image, and pushed to AWS ECR. It demonstrates a real-world DevOps workflow, integrating automation, code quality, and containerization using modern DevOps tools and best practices.
+## 🚀 Project Overview
 
-**1) Checkout Source Code**
-Jenkins clones the Java project from GitHub.
+This repository demonstrates a full **Jenkins CI/CD pipeline** for a Java-based application. The pipeline covers everything from **building the code**, running **unit tests**, performing **static code analysis**, to **containerizing the app** and **pushing the Docker image to AWS ECR**.
 
-**2) Clean & Compile**
-Maven cleans the project and compiles the Java code to check for build errors.
+It reflects **real-world DevOps practices** using tools like Jenkins, Maven, SonarQube, Docker, and AWS — designed to be clean, modular, and recruiter-friendly.
 
-**3) Unit Testing**
-Maven runs unit tests (mvn test) to ensure the application behaves as expected.
+---
 
-**4) Static Code Analysis with SonarQube**
-SonarQube scans the code for: Bugs, Vulnerabilities, Code smells, Maintainability issues
+## ⚙️ Tools & Technologies Used
 
-**5) SonarQube Quality Gate Check**
-The pipeline waits for SonarQube’s Quality Gate to pass.
-If it fails, the pipeline stops.
+| Tool        | Purpose                                  |
+|-------------|-------------------------------------------|
+| **Jenkins** | CI/CD orchestration                      |
+| **Maven**   | Java build & dependency management       |
+| **SonarQube** | Static code analysis                   |
+| **Docker**  | Containerization                         |
+| **AWS ECR** | Container registry for storing images    |
+| **GitHub**  | Source control                           |
+| **Slack** *(optional)* | Build notifications           |
 
-**6) Package the Application**
-Maven packages the code into a .jar file (Java archive).
+---
 
-**7) Build Docker Image**
-Docker builds a container image using the JAR file via the Dockerfile.
+## 📁 Repository Structure
 
-**8) Tag & Push to AWS ECR**
-The image is tagged with a Git SHA + build number and pushed to your AWS ECR repo.
+| File                  | Description |
+|-----------------------|-------------|
+| `Jenkinsfile`         | Full pipeline: Build → Test → Scan → Package → Dockerize → Push to ECR |
+| `Dockerfile`          | Builds a Docker image from the generated JAR file |
+| `pom.xml`             | Maven config to compile & package the Java app |
+| `HelloWorld.java`     | Simple Java class to simulate real application |
+| `sonar-project.properties` | Configuration for SonarQube scanning |
+| `README.md`           | Project documentation (this file) |
 
-**9) Slack Notification**
-On success or failure, Jenkins sends a notification to a Slack channel (optional).
+---
 
+## 🧪 What This Project Demonstrates
+
+### **1. CI/CD Automation with Jenkins**
+A full declarative pipeline using `Jenkinsfile` with clean and efficient stages.
+
+### **2. Build & Test**
+Runs `mvn clean compile` and `mvn test` to compile code and verify functionality.
+
+### **3. Code Quality Scanning (SonarQube)**
+Scans Java code using SonarQube and enforces **quality gate policies** before proceeding.
+
+### **4. Docker Image Build**
+Packages the JAR as a Docker image using the provided `Dockerfile`.
+
+### **5. Push to AWS ECR**
+Tags and pushes the Docker image to **Amazon Elastic Container Registry (ECR)** using AWS CLI.
+
+### **6. Slack Notifications (Optional)**
+Sends success/failure notifications to Slack (can be enabled with credentials).
+
+---
+
+## 📦 How to Use This Repo
+
+### **1. Clone the Repository**
+```bash
+git clone https://github.com/piyush-bhosale/Jenkins-Pipeline.git
+cd Jenkins-Pipeline
