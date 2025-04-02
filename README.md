@@ -1,4 +1,5 @@
 **Jenkins CI/CD Pipeline for Java Application**
+
 Project Overview
 This project showcases a complete Jenkins-based CI/CD pipeline for a Java application, built using Maven, scanned using SonarQube, packaged as a Docker image, and pushed to AWS ECR. It demonstrates a real-world DevOps workflow, integrating automation, code quality, and containerization using modern DevOps tools and best practices.
 
